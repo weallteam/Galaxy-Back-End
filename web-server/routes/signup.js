@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {registerUser} = require('../database_controller/userController')
-router.post('/signup',registerUser,(req,res)=>{
+const {generateHash} = require('../hash/hash')
+router.post('/signup',generateHash,registerUser,(req,res)=>{
     res.sendStatus(200)
 })
 

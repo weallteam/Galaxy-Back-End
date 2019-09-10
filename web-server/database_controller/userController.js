@@ -19,6 +19,22 @@ const registerUser = (req,res,next)=>{
     })
 }
 
+const findOneUsername = (req,res,next)=>{
+    user
+        .findOne({
+            where : {username : req.body.username}
+        })
+        .then((result)=>{
+            req.userHashPassword = result.dataValues.password
+            req.verified = result.dataValues.verified
+            next()
+        })
+        .catch(()=>{
+            res.sendStatus(409)
+        })
+}
+
 module.exports = {
-    registerUser
+    registerUser,
+    findOneUsername
 }

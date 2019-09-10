@@ -1,11 +1,15 @@
 const router = require('express').Router()
+const {genToken} = require('../auth/token')
+const {compareHash} = require('../hash/hash')
+const {findOneUsername} = require('../database_controller/userController')
 
-router.post('/login',()=>{
-    console.log('login')
+router.post('/login',findOneUsername,compareHash,genToken,(req,res)=>{
+    res.status(202).send({
+        'message':'Logged In Successfully',
+        'token':req.genToken,
+        'verified':req.verified
+    })
 })
 
-router.get('/dataLogin',(req,res)=>{
-    res.send('Hello login')
-})
 
 module.exports = router
