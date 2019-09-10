@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
-
+require('./connection/database_connect')
 // to parse json object into javascript object
 const bodyParser = require('body-parser')
 
 // using dotenv for env file
 require('dotenv').config()
 const login = require('./routes/login')
+const signup = require('./routes/signup')
 
 // this is the access control
 app.use((req, res, next) => {
@@ -24,7 +25,7 @@ app.use(express.static(publicDir));
 app.use(bodyParser.json())
 
 app.use('/user',login)
-
+app.use('/user',signup)
 app.listen(process.env.port,()=>{
     console.log('server started')
 })
