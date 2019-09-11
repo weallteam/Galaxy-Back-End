@@ -24,6 +24,13 @@ app.use(express.static(publicDir));
 //uses boby-parse to parse json object
 app.use(bodyParser.json())
 
+app.get('/test',(req,res)=>{
+    res.json({
+        "message":"This is the message from the server"
+    })
+}
+)
+
 app.use('/user',login)
 app.use('/user',signup)
 app.listen(process.env.port,()=>{

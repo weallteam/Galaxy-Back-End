@@ -34,7 +34,83 @@ const findOneUsername = (req,res,next)=>{
         })
 }
 
+const getOneByID = (req,res,next)=>{
+    user
+    .findOne({where : {id : req.params.id}})
+    .then((result)=>{
+        res.send(result)
+    })
+    .catch((error)=>{
+        res.sendStatus(404)
+    })
+}
+
+const findOneEmail = (req,res,next)=>{
+    user
+    .findOne({
+        where : {email : req.body.email}
+    })
+    .then((result)=>{
+        if(result.dataValues != ''){
+            res.status(409).send('Email already exists')
+        }
+    })
+    .catch((error)=>{
+        next()
+    })
+}
+
+const updateUser = (req,res,next) =>{
+    user
+    .update(
+        { 
+            firstname: req.body.firstname,
+            lastname:req.body.lastname,
+            gender:req.body.gender,
+            birth_date:req.body.birth_date,
+            latitude:req.body.latitude,
+            longitude:req.body.longitude,
+            verified:1
+        },
+        { where: { username: req.body.username } }
+      )
+        .then(result =>{
+          if(result){
+            console.log('updated')
+            res.sendStatus(200)
+          }
+        } 
+        )
+        .catch(err =>{
+            console.log(err)
+            res.sendStatus(500)
+        }
+          
+        )
+}
+
+
+const getVerified = (req,res) =>{
+    user
+    .findOne({
+        where:{username:req.body.username}
+    })
+    .then((result)=>{
+        if(result.dataValues != ""){
+            res.status(200).send({verified:result.verified})
+        }
+    })
+    .catch(()=>{
+        res.sendStatus(500)
+    })
+}
+
+
 module.exports = {
     registerUser,
-    findOneUsername
+    findOneUsername,
+    getOneByID,
+    findOneEmail,
+    updateUser,
+    getVerified
 }
