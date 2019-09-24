@@ -1,6 +1,6 @@
 module.exports = (sequelize, Type) => {
     return sequelize.define('User', {
-       
+
         id: {
           type: Type.INTEGER,
           primaryKey: true,
@@ -37,6 +37,12 @@ module.exports = (sequelize, Type) => {
         latitude:{
             type:Type.STRING
         },
+        gender:{
+          type:TYPE.INTEGER
+        },
+        date_of_birth:{
+          type:TYPE.DATE
+        },
         longitude:{
             type:Type.STRING
         },
@@ -51,7 +57,7 @@ module.exports = (sequelize, Type) => {
         createdAt: Type.DATE,
         lastUpdated: Type.DATE,
     },
-    
+
     {
       freezeTableName: true,
     })

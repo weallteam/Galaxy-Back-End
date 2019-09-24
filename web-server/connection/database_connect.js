@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize')
 require('dotenv').config()
 const Usermodel = require('../database_model/User')
+const ProfileModel = require('../database_model/Profile')
+const ProviderModel = require('../database_model/Provider')
+const ServiceModel = require('../database_model/Service')
 console.log(process.env.database_name,process.env.database_user_name,process.env.database_user_password)
 const sequelize = new Sequelize(process.env.database_name,process.env.database_user_name,process.env.database_user_password, {
     host: process.env.database_host,
