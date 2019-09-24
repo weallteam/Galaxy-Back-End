@@ -49,6 +49,7 @@ module.exports = (sequelize, Type) => {
         createdAt: Type.DATE,
         lastUpdated: Type.DATE,
     },
+    
     {
       freezeTableName: true,
     })
