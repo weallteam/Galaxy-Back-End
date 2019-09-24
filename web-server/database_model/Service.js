@@ -23,29 +23,29 @@ module.exports = (sequelize, Type) => {
           type:Type.STRING
         },
         price:{
-          type:TYPE.INTEGER
+          type:Type.INTEGER
         },
         currency:{
-          type:TYPE.STRING
+          type:Type.STRING
         },
         gender:{
-          type:TYPE.INTEGER
+          type:Type.INTEGER
         },
         latitude:{
-          type:TYPE.INTEGER
+          type:Type.INTEGER
         },
         longitude:{
-          type:TYPE.INTEGER
+          type:Type.INTEGER
         },
         start_date:{
-          type:TYPE.DATE
+          type:Type.DATE
         },
         end_date:{
           type:Type.DATE
         },
         status:{
-          type:TYPE.INTEGER
-        }
+          type:Type.INTEGER
+        },
         createdAt: Type.DATE,
         lastUpdated: Type.DATE,
     },

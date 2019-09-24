@@ -12,6 +12,12 @@ const sequelize = new Sequelize(process.env.database_name,process.env.database_u
 
 
 const user = Usermodel(sequelize,Sequelize)
+const profile = ProfileModel(sequelize,Sequelize)
+const provider = ProviderModel(sequelize,Sequelize)
+const service =  ServiceModel(sequelize,Sequelize)
+
+
+
 sequelize.sync({ force: false })
 .then(() => {
   console.log(`Database & tables created!`)
@@ -21,5 +27,8 @@ sequelize.sync({ force: false })
 })
 
 module.exports = {
-  user
+  user,
+  profile,
+  provider,
+  service
 }

@@ -15,7 +15,7 @@ module.exports = (sequelize, Type) => {
           type:Type.INTEGER,
           allowNull:false,
           unique:true
-        }
+        },
         createdAt: Type.DATE,
         lastUpdated: Type.DATE,
     },

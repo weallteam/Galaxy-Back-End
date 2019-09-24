@@ -38,10 +38,10 @@ module.exports = (sequelize, Type) => {
             type:Type.STRING
         },
         gender:{
-          type:TYPE.INTEGER
+          type:Type.INTEGER
         },
         date_of_birth:{
-          type:TYPE.DATE
+          type:Type.DATE
         },
         longitude:{
             type:Type.STRING
