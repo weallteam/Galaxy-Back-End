@@ -13,6 +13,21 @@ const uploadProfile = (req,res,next)=>{
   })
 }
 
+const updateProfileDetail =(req,res,next) =>{
+  profile.update(
+      { 
+          url : req.body.filename
+      },
+      { where: { userID: req.body.userID } }
+  )
+  .then((result)=>{
+      next()
+  })
+  .catch((err)=>{
+      
+      res.sendStatus(409)
+  })
+}
 const findProfile = (req,res,next) =>{
   profile.findOne({
     userID:req.body.userID

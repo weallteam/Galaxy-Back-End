@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config()
 const login = require('./routes/login')
 const signup = require('./routes/signup')
+const profile = require('./routes/profile')
 
 // this is the access control
 app.use((req, res, next) => {
@@ -33,6 +34,7 @@ app.get('/test',(req,res)=>{
 
 app.use('/user',login)
 app.use('/user',signup)
+app.use('/user',profile)
 app.listen(process.env.port,()=>{
     console.log('server started')
 })
