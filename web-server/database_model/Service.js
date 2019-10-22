@@ -8,8 +8,7 @@ module.exports = (sequelize, Type) => {
         },
         providerID:{
           type:Type.INTEGER,
-          allowNull:false,
-          unique:true
+          allowNull:false
         },
         title:{
           type:Type.STRING,
@@ -17,7 +16,7 @@ module.exports = (sequelize, Type) => {
           unique:true
         },
         category:{
-          type:Type.INTEGER,
+          type:Type.STRING,
         },
         description:{
           type:Type.STRING
@@ -25,11 +24,11 @@ module.exports = (sequelize, Type) => {
         price:{
           type:Type.INTEGER
         },
-        currency:{
+        ImageURL:{
           type:Type.STRING
         },
         gender:{
-          type:Type.INTEGER
+          type:Type.STRING
         },
         latitude:{
           type:Type.INTEGER

@@ -9,7 +9,10 @@ require('dotenv').config()
 const login = require('./routes/login')
 const signup = require('./routes/signup')
 const profile = require('./routes/profile')
-
+const category = require('./routes/category')
+const user = require('./routes/user')
+const service = require('./routes/service')
+const book = require('./routes/book')
 // this is the access control
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -35,6 +38,10 @@ app.get('/test',(req,res)=>{
 app.use('/user',login)
 app.use('/user',signup)
 app.use('/user',profile)
+app.use('/service',category)
+app.use('/user',user)
+app.use('/service',service)
+app.use('/service',book)
 app.listen(process.env.port,()=>{
     console.log('server started')
 })

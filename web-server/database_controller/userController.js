@@ -9,7 +9,9 @@ const registerUser = (req,res,next)=>{
         firstname:req.body.firstname,
         lastname:req.body.lastname,
         security_question: req.body.security_question,
-        security_answer: req.body.security_answer
+        security_answer: req.body.security_answer,
+        longitude:req.body.longitude,
+        latitude:req.body.latitude
     })
     .then((result)=>{
         console.log('data inserted')})
